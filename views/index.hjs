@@ -12,7 +12,7 @@
       <div class="jumbotron">
 
         <p>Welcome to {{ title }}</p>
-        //test githubddd
+
       </div>
     </div>
 
