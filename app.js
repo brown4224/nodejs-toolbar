@@ -10,6 +10,13 @@ var users = require('./routes/users');
 
 var app = express();
 
+// var server = require('http').Server(app);
+// var sockIO = require('socket.io')(server);
+
+var sockIO = require('socket.io')();
+app.sockIO = sockIO;
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs');
@@ -44,4 +51,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+sockIO.on('connection', function(socket){
+    console.log('A client connection occurred!');
+    socket.on('send message', function(data){
+      console.log('Message recieved by server');
+      sockIO.emit('new message', data);
+      // app.sockIO.emit('new message', data);
+      console.log('Message sent by server');
+    });
+});
 module.exports = app;
