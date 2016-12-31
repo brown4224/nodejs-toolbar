@@ -5,13 +5,6 @@
   <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">  </head>
 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-  <!-- <script src="/socket.io/socket.io.js"></script> -->
-  <script src="/socket.io/socket.io.js"></script>
-
-
-
   <body>
     <div class="container">
       <div class="page-header">
@@ -34,60 +27,10 @@
 
     </body>
 
-    <script>
-      jQuery(function($){
-        // Create the socket.io connection
-        var $socket = io.connect();
-
-        //Cache Dom Varialbles
-        var $toolbar = $('#toolbar');
-        var $toolbarText = $('#toolbar-text');
-        var $toolbarButton = $('#toolbar-button');
-        var $displayText = $('#display-text');
-
-        console.log('Start jquery');
-
-        // Add function when button clicked
-        // Will submit text box
-        $toolbarButton.click(function(){
-          $socket.emit('send message', $toolbarText.val());
-          $toolbarText.val('');
-        });
-
-        $socket.on('new message', function(data){
-          console.log('Success Client Recieved!!!!');
-          $displayText.append(data + "<br/>");
-        });
-      });
-
-
-
-
-    // $(function(){
-    //   // Create the socket.io connection
-    //     var $socket = io.connect();
-    //
-    //     //Cache Dom Varialbles
-    //     var $toolbar = $('#toolbar');
-    //     var $toolbarText = $('#toolbar-text');
-    //     var $toolbarButton = $('#toolbar-button');
-    //     var $displayText = $('#display-text');
-    //
-    //     console.log('Start jquery');
-    //
-    //     // Add function when button clicked
-    //     // Will submit text box
-    //     $toolbarButton.click(function(){
-    //       alert('Clicked');
-    //       socket.emit('send message', $toolbarText.val());
-    //       $toolbarText.val();
-    //     });
-    //
-    //     socket.on('new message', function(){
-    //       $displayText.append(data + <br/>);
-    //     });
-    // });
-
-    </script>
+    <!-- Scripts go Here -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/main.js"></script>
 
     </html>
